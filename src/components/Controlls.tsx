@@ -46,7 +46,7 @@ function Controls({
          <Button
             onClick={onRequestLoan}
             type="primary"
-            disabled={!state.isAccountOpened}
+            disabled={!state.isAccountOpened || Boolean(state.loan)}
          >
             Request Loan 5000
          </Button>

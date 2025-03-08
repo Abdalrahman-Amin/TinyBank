@@ -6,8 +6,8 @@ export interface State {
 
 export type Action =
    | { type: "openAccount" }
-   | { type: "deposit" }
-   | { type: "withdraw" }
-   | { type: "requestLoan" }
+   | { type: "deposit"; payload: number }
+   | { type: "withdraw"; payload: number }
+   | { type: "requestLoan"; payload: number }
    | { type: "payLoan" }
    | { type: "closeAccount" };

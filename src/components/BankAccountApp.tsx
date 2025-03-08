@@ -11,27 +11,39 @@ const intialState: State = {
 };
 
 const reducer: React.Reducer<State, Action> = (state, action) => {
+   if (!state.isAccountOpened && action.type !== "openAccount")
+      return { ...state };
+
    switch (action.type) {
       case "openAccount":
          return { ...state, isAccountOpened: true, balance: 500 };
       case "deposit":
-         return { ...state, balance: state.balance + 150 };
+         return { ...state, balance: state.balance + action.payload };
       case "withdraw":
          return {
             ...state,
-            balance: state.balance >= 50 ? state.balance - 50 : state.balance,
+            balance:
+               state.balance >= action.payload
+                  ? state.balance - action.payload
+                  : state.balance,
          };
-      case "requestLoan":
+      case "requestLoan": {
+         if (state.loan !== 0) return state;
          return {
             ...state,
-            balance: state.balance + 5000,
-            loan: state.loan + 5000,
+            balance: state.balance + action.payload,
+            loan: action.payload,
          };
+      }
 
-      case "payLoan":
+      case "payLoan": {
+         if (state.loan > state.balance) return state;
          return { ...state, balance: state.balance - state.loan, loan: 0 };
-      case "closeAccount":
+      }
+      case "closeAccount": {
+         if (state.loan !== 0 || state.balance !== 0) return state;
          return { ...intialState };
+      }
    }
 };
 
@@ -45,9 +57,11 @@ function BankAccountApp() {
          <AccountInfo balance={balance} loan={loan} />
          <Controlls
             onOpenAccount={() => dispatch({ type: "openAccount" })}
-            onDeposit={() => dispatch({ type: "deposit" })}
-            onWithdraw={() => dispatch({ type: "withdraw" })}
-            onRequestLoan={() => dispatch({ type: "requestLoan" })}
+            onDeposit={() => dispatch({ type: "deposit", payload: 150 })}
+            onWithdraw={() => dispatch({ type: "withdraw", payload: 50 })}
+            onRequestLoan={() =>
+               dispatch({ type: "requestLoan", payload: 5000 })
+            }
             onPayLoan={() => dispatch({ type: "payLoan" })}
             onCloseAccount={() => dispatch({ type: "closeAccount" })}
             state={state}
