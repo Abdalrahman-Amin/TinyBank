@@ -1,54 +1,59 @@
-# React + TypeScript + Vite
+# 🏦 TinyBank
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A lightweight and interactive bank account UI built with React and `useReducer`. Manage deposits, withdrawals, and loans with a smooth, modern interface.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-  🚀 Open and close a bank account
+-  💰 Deposit and withdraw money
+-  🏦 Request and repay loans
+-  🎨 Stylish UI with animations
+-  ⚛️ State management using `useReducer`
+-  📱 Fully responsive design
 
-## Expanding the ESLint configuration
+## 🚀 Live Demo
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+[TinyBank Live](https://tiny-bank.vercel.app/)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 📸 Preview
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+![App Screenshot](screenshot.png) (Replace with your actual screenshot)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🛠️ Technologies Used
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+-  ⚛️ React
+-  🎨 CSS (with animations)
+-  📦 useReducer for state management
+
+## 🏗️ Installation
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/Abdalrahman-Amin/TinyBank.git
+   ```
+2. Navigate into the project folder:
+   ```sh
+   cd TinyBank
+   ```
+3. cd TinyBank:
+   ```sh
+   npm install
+   ```
+4. Start the development server:
+   ```sh
+   npm run dev
+   ```
+
+## 📌 Usage
+
+-  Click "Open Account" to start banking.
+-  Use the buttons to deposit, withdraw, or request a loan.
+-  Repay loans and close the account when done.
+
+## 📜 License
+
+This project is open-source and available under the MIT License.
+
+## 👨‍💻 Author
+
+Abdalrahman Amin – https://github.com/Abdalrahman-Amin
